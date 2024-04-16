@@ -1,8 +1,6 @@
 package com.emarra.dscommerce.controllers;
 
 import com.emarra.dscommerce.dto.ProductDTO;
-import com.emarra.dscommerce.entities.Product;
-import com.emarra.dscommerce.repositories.ProductRepository;
 import com.emarra.dscommerce.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

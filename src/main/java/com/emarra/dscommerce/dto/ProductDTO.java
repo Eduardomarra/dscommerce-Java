@@ -1,7 +1,6 @@
 package com.emarra.dscommerce.dto;
 
 import com.emarra.dscommerce.entities.Product;
-import jakarta.persistence.Column;
 
 public class ProductDTO {
 
