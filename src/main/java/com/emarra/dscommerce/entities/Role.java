@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Objects;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "tb_role")
 public class Role implements GrantedAuthority {
