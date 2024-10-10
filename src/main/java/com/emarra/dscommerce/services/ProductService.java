@@ -1,13 +1,5 @@
 package com.emarra.dscommerce.services;
 
-import com.emarra.dscommerce.dto.CustomError;
-import com.emarra.dscommerce.dto.ProductDTO;
-import com.emarra.dscommerce.entities.Product;
-import com.emarra.dscommerce.repositories.ProductRepository;
-import com.emarra.dscommerce.services.exceptions.DatabaseException;
-import com.emarra.dscommerce.services.exceptions.ResourceNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -16,8 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Instant;
-import java.util.List;
+import com.emarra.dscommerce.dto.ProductDTO;
+import com.emarra.dscommerce.entities.Product;
+import com.emarra.dscommerce.repositories.ProductRepository;
+import com.emarra.dscommerce.services.exceptions.DatabaseException;
+import com.emarra.dscommerce.services.exceptions.ResourceNotFoundException;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class ProductService {

@@ -86,8 +86,12 @@ public class User implements UserDetails {
     public String getPassword() {
         return password;
     }
-
-    @Override
+    
+    public Set<Role> getRoles() {
+		return roles;
+	}
+    
+	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
     }
