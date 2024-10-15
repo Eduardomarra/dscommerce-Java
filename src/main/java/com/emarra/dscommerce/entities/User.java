@@ -14,7 +14,7 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String name;
 
     @Column(unique = true)
@@ -34,7 +34,7 @@ public class User implements UserDetails {
 
     public User(){
     }
-    public User(long id, String name, String email, String phone, LocalDate birthDate, String password) {
+    public User(Long id, String name, String email, String phone, LocalDate birthDate, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -43,11 +43,11 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -79,7 +79,7 @@ public class User implements UserDetails {
         return birthDate;
     }
 
-    public void setBirthDay(LocalDate birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -89,6 +89,27 @@ public class User implements UserDetails {
     
     public Set<Role> getRoles() {
 		return roles;
+	}
+    
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void addRole(Role role) {
+        roles.add(role);
+    }
+    
+    public boolean hasRole(String roleName) {
+		for (Role role : roles) {
+			if (role.getAuthority().equals(roleName)) {
+				return true;
+			}
+		}
+		return false;
 	}
     
 	@Override
@@ -120,28 +141,7 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void addRole(Role role) {
-        roles.add(role);
-    }
-
-    public boolean hasRole(String roleName) {
-        for( Role role: roles) {
-            if(role.getAuthority().equals(roleName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -149,11 +149,14 @@ public class User implements UserDetails {
 
         User user = (User) o;
 
-        return id == user.id;
+        return Objects.equals(id, user.id);
     }
 
     @Override
     public int hashCode() {
-        return (int) (id ^ (id >>> 32));
+        return id != null ? id.hashCode() : 0;
     }
+
+    
+    
 }
