@@ -8,6 +8,7 @@ import com.emarra.dscommerce.entities.Product;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
@@ -20,7 +21,8 @@ public class ProductDTO {
     @Size(min = 10, message = "Descrição deve conter no minimo 10 caracteres.")
     @NotBlank(message = "Campo requerido.")
     private String description;
-    @Positive(message = "Preço deve ser maior que 0.00 .")
+    @NotNull(message = "Campo requerido.")
+    @Positive(message = "Preço deve ser positivo.")
     private Double price;
     private String imgUrl;
     @NotEmpty(message = "Deve ter pelo menos uma categoria.")
