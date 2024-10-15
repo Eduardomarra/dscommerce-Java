@@ -1,11 +1,10 @@
 package com.emarra.dscommerce.entities;
 
-import jakarta.persistence.Embeddable;
+import java.util.Objects;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-
-import java.util.Objects;
 
 @Entity
 @Table(name = "tb_order_item")
