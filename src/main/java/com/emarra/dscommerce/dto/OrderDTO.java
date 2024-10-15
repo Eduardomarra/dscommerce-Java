@@ -7,6 +7,8 @@ import java.util.List;
 import com.emarra.dscommerce.entities.Order;
 import com.emarra.dscommerce.entities.OrderItem;
 
+import jakarta.validation.constraints.NotEmpty;
+
 public class OrderDTO {
 	
 	private Long id;
@@ -14,6 +16,7 @@ public class OrderDTO {
 	private String status;
 	private ClientDTO client;
 	private PaymentDTO payment;
+	@NotEmpty(message = "Deve ter pelo menos um item.")
 	private List<OrderItemDTO> items = new ArrayList<OrderItemDTO>();
 
 	public OrderDTO() {
